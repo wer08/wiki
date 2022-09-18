@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add page
+{% endblock %}
+
+{% block body %}
+    <h1>Add page</h1>
+    <p>Entry have to be written using markdown guide(link below)</p>
+    <p><a href="https://www.markdownguide.org/">Markdown guide</a></p>
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form">
+            {{ field }}
+        </div>
+        {% endfor %}
+        <div>
+            <button type="submit">Add Entry</button>
+        </div>
+    </form>
+    
+{% endblock %}
